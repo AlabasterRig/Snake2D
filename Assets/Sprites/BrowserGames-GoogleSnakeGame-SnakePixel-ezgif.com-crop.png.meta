@@ -1,0 +1,364 @@
+fileFormatVersion: 2
+guid: 77032135c6c86034a9f186d40f42f6cc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2824903049182256325
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_0
+  - first:
+      213: 5600271266680929598
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_1
+  - first:
+      213: -8948010274672848678
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_2
+  - first:
+      213: 2727913029890554225
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_3
+  - first:
+      213: -1039032693880252517
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_4
+  - first:
+      213: 5660274798676214912
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_5
+  - first:
+      213: -763689188842760763
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_6
+  - first:
+      213: -1613647086536937479
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_7
+  - first:
+      213: -4416346180505447611
+    second: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be29807f9f80b34c98954ad30bd4eb0
+      internalID: -2824903049182256325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_1
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9faeeffba3d4ec442b944b49159627c2
+      internalID: 5600271266680929598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_2
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5cda0642092b924b955c9246afada29
+      internalID: -8948010274672848678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_3
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b36a863b7d3474a9d5905f224aaf3c
+      internalID: 2727913029890554225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_4
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ac50abbd6f23d4ab28f24637a90fd2
+      internalID: -1039032693880252517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_5
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd030598fe9efe4409443287729d7ed8
+      internalID: 5660274798676214912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_6
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b80cd30452cb73947ad63962b4dec129
+      internalID: -763689188842760763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_7
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91667b0a562ef047a8fff82419582e3
+      internalID: -1613647086536937479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_8
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 16
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce0936beaff84554f94c8d1f13d3b137
+      internalID: -4416346180505447611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4dfee7e75ffa86c4abc94dbf368f32b2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_0: -2824903049182256325
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_1: 5600271266680929598
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_2: -8948010274672848678
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_3: 2727913029890554225
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_4: -1039032693880252517
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_5: 5660274798676214912
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_6: -763689188842760763
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_7: -1613647086536937479
+      BrowserGames-GoogleSnakeGame-SnakePixel-ezgif.com-crop_8: -4416346180505447611
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
