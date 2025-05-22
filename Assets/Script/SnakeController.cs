@@ -9,6 +9,7 @@ public class SnakeController : MonoBehaviour
 
     public Vector2 SnakeDirection = Vector2.right;
     private SpriteRenderer sr;
+    public UIManagerController UIManager;
 
     public List<Transform> SnakeBodySegments;
     public Transform SnakeBodyPrefab;
@@ -22,6 +23,7 @@ public class SnakeController : MonoBehaviour
     public bool HasShield = false;
     public bool IsScoreBoostActive = false;
     public bool IsSpeedUpActive = false;
+    private bool IsGameOver = false;
 
     public float PowerUpDuration = 6f;
     private float PowerUpTimerShield;
@@ -29,6 +31,7 @@ public class SnakeController : MonoBehaviour
     private float PowerUpTimerSpeed;
 
     public int Score = 0;
+    public int WinningScore = 10;
 
 
     private void Awake()
@@ -105,6 +108,11 @@ public class SnakeController : MonoBehaviour
 
     public void GrowSnake(int Amount = 1)
     {
+        if (IsGameOver)
+        { 
+            return; 
+        }
+
         for (int i = 0; i < Amount; i++)
         {
             Transform NewSegment = Instantiate(SnakeBodyPrefab);
@@ -114,6 +122,31 @@ public class SnakeController : MonoBehaviour
 
         Score += IsScoreBoostActive ? 2 : 1;
         Debug.Log("Score: " + Score);
+
+        if (Score >= WinningScore)
+        {
+            WinGame();
+        }
+    }
+
+    private void WinGame()
+    {
+        if (IsGameOver) return;
+
+        IsGameOver = true;
+        Time.timeScale = 0;
+        UIManager.ShowWin();
+        Debug.Log("You Win!");
+    }
+
+    private void GameOver()
+    {
+        if (IsGameOver) return;
+
+        IsGameOver = true;
+        Time.timeScale = 0;
+        UIManager.ShowGameOver();
+        Debug.Log("Game Over!");
     }
 
     private Vector3 WrapPosition(Vector3 Position)
@@ -209,6 +242,9 @@ public class SnakeController : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
+        IsGameOver = false;
+
         for (int i = 1; i < SnakeBodySegments.Count; i++)
         {
             Destroy(SnakeBodySegments[i].gameObject);
@@ -218,6 +254,10 @@ public class SnakeController : MonoBehaviour
         transform.position = Vector2.zero;
         SnakeDirection = Vector2.right;
         Score = 0;
+        HasShield = false;
+        IsScoreBoostActive = false;
+        IsSpeedUpActive = false;
+        MoveInterval = 0.2f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -226,7 +266,13 @@ public class SnakeController : MonoBehaviour
         {
             if (!HasShield)
             {
-                RestartGame();
+                GameOver();
+            }
+            else
+            {
+                HasShield = false;
+                PowerUpTimerShield = 0.0f;
+                Debug.Log("Shield saved you!");
             }
         }
     }
