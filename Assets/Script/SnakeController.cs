@@ -1,10 +1,15 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class SnakeController : MonoBehaviour
 {
+    private static SnakeController instance;
+    public static SnakeController Instance { get { return instance; } }
+
     public Vector2 SnakeDirection = Vector2.right;
     private SpriteRenderer sr;
+    public UIManagerController UIManager;
 
     public List<Transform> SnakeBodySegments;
     public Transform SnakeBodyPrefab;
@@ -13,8 +18,25 @@ public class SnakeController : MonoBehaviour
     public Transform BorderTransformTop;
     public Transform BorderTransformBottom;
 
+    public float MoveInterval = 0.2f;
+    private float MoveTimer;
+    public bool HasShield = false;
+    public bool IsScoreBoostActive = false;
+    public bool IsSpeedUpActive = false;
+    private bool IsGameOver = false;
+
+    public float PowerUpDuration = 6f;
+    private float PowerUpTimerShield;
+    private float PowerUpTimerScore;
+    private float PowerUpTimerSpeed;
+
+    public int Score = 0;
+    public int WinningScore = 10;
+
+
     private void Awake()
     {
+        instance = this;
         sr = GetComponent<SpriteRenderer>();
     }
 
@@ -25,6 +47,23 @@ public class SnakeController : MonoBehaviour
     }
 
     private void Update()
+    {
+        HandleInput();
+        UpdatePowerUpTimers();
+        FlipSnake();
+    }
+
+    private void FixedUpdate()
+    {
+        MoveTimer += Time.fixedDeltaTime;
+        if (MoveTimer >= MoveInterval)
+        {
+            MoveSnake();
+            MoveTimer = 0f;
+        }
+    }
+
+    private void HandleInput()
     {
         if (Input.GetKeyDown(KeyCode.W) && SnakeDirection != Vector2.down)
         {
@@ -42,13 +81,6 @@ public class SnakeController : MonoBehaviour
         {
             SnakeDirection = Vector2.right;
         }
-
-        FlipSnake();
-    }
-
-    private void FixedUpdate()
-    {
-        MoveSnake();
     }
 
     private void MoveSnake()
@@ -74,11 +106,47 @@ public class SnakeController : MonoBehaviour
         }
     }
 
-    public void GrowSnake()
+    public void GrowSnake(int Amount = 1)
     {
-        Transform NewSegment = Instantiate(this.SnakeBodyPrefab);
-        NewSegment.position = SnakeBodySegments[SnakeBodySegments.Count - 1].position;
-        SnakeBodySegments.Add(NewSegment);
+        if (IsGameOver)
+        { 
+            return; 
+        }
+
+        for (int i = 0; i < Amount; i++)
+        {
+            Transform NewSegment = Instantiate(SnakeBodyPrefab);
+            NewSegment.position = SnakeBodySegments[SnakeBodySegments.Count - 1].position;
+            SnakeBodySegments.Add(NewSegment);
+        }
+
+        Score += IsScoreBoostActive ? 2 : 1;
+        Debug.Log("Score: " + Score);
+
+        if (Score >= WinningScore)
+        {
+            WinGame();
+        }
+    }
+
+    private void WinGame()
+    {
+        if (IsGameOver) return;
+
+        IsGameOver = true;
+        Time.timeScale = 0;
+        UIManager.ShowWin();
+        Debug.Log("You Win!");
+    }
+
+    private void GameOver()
+    {
+        if (IsGameOver) return;
+
+        IsGameOver = true;
+        Time.timeScale = 0;
+        UIManager.ShowGameOver();
+        Debug.Log("Game Over!");
     }
 
     private Vector3 WrapPosition(Vector3 Position)
@@ -105,27 +173,107 @@ public class SnakeController : MonoBehaviour
         return Position;
     }
 
+    public void ShrinkSnake(int amount = 1)
+    {
+        if (HasShield)
+        {
+            HasShield = false;
+            PowerUpTimerShield = 0f;
+            return;
+        }
+        for (int i = 0; i < amount && SnakeBodySegments.Count > 1; i++)
+        {
+            Transform lastSegment = SnakeBodySegments[SnakeBodySegments.Count - 1];
+            SnakeBodySegments.RemoveAt(SnakeBodySegments.Count - 1);
+            Destroy(lastSegment.gameObject);
+        }
+    }
+
+    private void UpdatePowerUpTimers()
+    {
+        if (HasShield)
+        {
+            PowerUpTimerShield -= Time.deltaTime;
+            if (PowerUpTimerShield <= 0f)
+            {
+                HasShield = false;
+                Debug.Log("Shield expired.");
+            }
+        }
+
+        if (IsScoreBoostActive)
+        {
+            PowerUpTimerScore -= Time.deltaTime;
+            if (PowerUpTimerScore <= 0f)
+            {
+                IsScoreBoostActive = false;
+            }
+        }
+
+        if (IsSpeedUpActive)
+        {
+            PowerUpTimerSpeed -= Time.deltaTime;
+            if (PowerUpTimerSpeed <= 0f)
+            {
+                IsSpeedUpActive = false;
+                MoveInterval = 0.2f;
+            }
+        }
+    }
+
+    public void ActivateShield()
+    {
+        HasShield = true;
+        PowerUpTimerShield = PowerUpDuration;
+    }
+
+    public void ActivateScoreBoost()
+    {
+        IsScoreBoostActive = true;
+        PowerUpTimerScore = PowerUpDuration;
+    }
+
+    public void ActivateSpeedUp()
+    {
+        IsSpeedUpActive = true;
+        PowerUpTimerSpeed = PowerUpDuration;
+        MoveInterval = 0.1f;
+    }
+
     public void RestartGame()
     {
+        Time.timeScale = 1;
+        IsGameOver = false;
+
         for (int i = 1; i < SnakeBodySegments.Count; i++)
         {
             Destroy(SnakeBodySegments[i].gameObject);
         }
         SnakeBodySegments.Clear();
         SnakeBodySegments.Add(this.transform);
-        this.transform.position = Vector2.zero;
-        this.SnakeDirection = Vector2.right;
+        transform.position = Vector2.zero;
+        SnakeDirection = Vector2.right;
+        Score = 0;
+        HasShield = false;
+        IsScoreBoostActive = false;
+        IsSpeedUpActive = false;
+        MoveInterval = 0.2f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.GetComponent<PointController>() != null)
+        if (collision.CompareTag("Segment"))
         {
-            GrowSnake();
-        }
-        else if(collision.tag == "Segment")
-        {
-            RestartGame();
+            if (!HasShield)
+            {
+                GameOver();
+            }
+            else
+            {
+                HasShield = false;
+                PowerUpTimerShield = 0.0f;
+                Debug.Log("Shield saved you!");
+            }
         }
     }
 }
